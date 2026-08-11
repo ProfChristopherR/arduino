@@ -39,6 +39,7 @@ Hoy la lista es cortita (¡disfrútala, que no siempre será así! 😄):
 
 ### 1. ¿Qué es Arduino? (y qué es eso del movimiento maker)
 
+![placa dibujo arduino](images/clase01-arduino-draw.png)
 Imagina que quieres construir una alarma que suene cuando alguien abre la puerta de tu cuarto. O un robot que esquive obstáculos. O una maceta que te avise cuando la planta tenga sed. Hace veinte años, para hacer algo así necesitabas estudiar ingeniería electrónica durante años, soldar circuitos complicados y programar en lenguajes que parecen hechizos.
 
 Entonces, en el año 2005, un grupo de profesores de una escuela de diseño en Ivrea, Italia (sí, el nombre "Arduino" viene del bar donde se reunían 🍻), se hizo una pregunta genial:
