@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Curso completo de Arduino: 8 clases desde cero hasta proyectos maker avanzados">
+    <title>⚡ Curso de Arduino — De Cero a Maker</title>
+
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Highlight.js para sintaxis de código -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" id="hljs-theme">
+
+    <!-- Estilos principales -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script>
+        // Aplicar tema antes de que cargue la página para evitar flash
+        (function() {
+            const saved = localStorage.getItem('arduino-theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const theme = saved || (prefersDark ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+</head>
+<body>
+    <!-- Elementos decorativos de fondo -->
+    <div class="bg-decoration" aria-hidden="true">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- Header con navegación -->
+    <header class="site-header" id="siteHeader">
+        <div class="header-container">
+            <a href="#" class="logo" data-clase="inicio" aria-label="Ir al inicio" onclick="navegarAClase('inicio'); return false;">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">Curso Arduino</span>
+            </a>
+
+            <div class="clase-select-wrapper">
+                <label for="claseSelector" class="sr-only">Elegir clase</label>
+                <select id="claseSelector" class="clase-selector" aria-label="Elegir clase">
+                    <option value="inicio">★ Inicio</option>
+                    <option value="01">01 · ¡Hola, Arduino! (Tinkercad)</option>
+                    <option value="02">02 · Pensar como Programador</option>
+                    <option value="03">03 · Primeros Programas (Kit físico)</option>
+                    <option value="04">04 · El Mundo Analógico</option>
+                    <option value="05">05 · Explorando el Kit XL</option>
+                    <option value="06">06 · Taller de Soldadura</option>
+                    <option value="07">07 · Arduino Avanzado</option>
+                    <option value="08">08 · IA + Proyecto Final</option>
+                </select>
+            </div>
+
+            <nav class="tab-nav" aria-label="Navegación rápida de clases">
+                <button class="tab-btn active" data-clase="inicio" title="Inicio"><span class="tab-num">★</span></button>
+                <button class="tab-btn" data-clase="01" title="¡Hola, Arduino! (Tinkercad)"><span class="tab-num">01</span></button>
+                <button class="tab-btn" data-clase="02" title="Pensar como Programador"><span class="tab-num">02</span></button>
+                <button class="tab-btn" data-clase="03" title="Primeros Programas (Kit físico)"><span class="tab-num">03</span></button>
+                <button class="tab-btn" data-clase="04" title="El Mundo Analógico"><span class="tab-num">04</span></button>
+                <button class="tab-btn" data-clase="05" title="Explorando el Kit XL"><span class="tab-num">05</span></button>
+                <button class="tab-btn" data-clase="06" title="Taller de Soldadura"><span class="tab-num">06</span></button>
+                <button class="tab-btn" data-clase="07" title="Arduino Avanzado"><span class="tab-num">07</span></button>
+                <button class="tab-btn" data-clase="08" title="IA + Proyecto Final"><span class="tab-num">08</span></button>
+            </nav>
+
+            <div class="header-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema claro/oscuro">
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="main-content">
+        <!-- Loading state -->
+        <div class="loading-container" id="loadingContainer">
+            <div class="loading-spinner"></div>
+            <p class="loading-text">Cargando clase...</p>
+        </div>
+
+        <!-- Contenedor del contenido renderizado -->
+        <article class="clase-container" id="claseContainer" aria-live="polite">
+            <!-- El contenido se renderiza aquí dinámicamente -->
+        </article>
+    </main>
+
+    <!-- Navegación flotante entre clases -->
+    <nav class="float-nav" id="floatNav" aria-label="Navegación anterior/siguiente">
+        <button class="float-btn prev-btn" id="prevBtn" aria-label="Clase anterior">
+            <span class="float-arrow">←</span>
+            <span class="float-text">Anterior</span>
+        </button>
+        <div class="float-progress">
+            <div class="progress-bar" id="progressBar"></div>
+            <span class="progress-text" id="progressText">1 / 9</span>
+        </div>
+        <button class="float-btn next-btn" id="nextBtn" aria-label="Clase siguiente">
+            <span class="float-text">Siguiente</span>
+            <span class="float-arrow">→</span>
+        </button>
+    </nav>
+
+    <!-- Botón volver arriba -->
+    <button class="back-to-top" id="backToTop" aria-label="Volver arriba">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>⚡ Curso de Arduino — De Cero a Maker</p>
+            <p class="footer-sub">8 clases para convertirte en un verdadero maker</p>
+        </div>
+    </footer>
+
+    <!-- Librerías externas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.0/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/arduino.min.js"></script>
+
+    <!-- Script principal -->
+    <script src="js/app.js"></script>
+</body>
+</html>
