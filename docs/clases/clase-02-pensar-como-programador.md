@@ -1,4 +1,4 @@
-# Clase 02 — Aprendiendo a pensar como un programador 🧠💡
+# Aprendiendo a pensar como un programador 🧠💡
 
 ![portada](images/clase02-portada.png)
 

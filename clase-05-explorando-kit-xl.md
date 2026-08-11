@@ -1,4 +1,4 @@
-# Clase 05 — Explorando el kit XL: pantalla LCD, servo y sensor ultrasónico 🖥️🦾📡
+# Explorando el kit XL: pantalla LCD, servo y sensor ultrasónico 🖥️🦾📡
 
 ![portada](images/clase05-portada.png)
 

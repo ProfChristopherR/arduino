@@ -1,4 +1,4 @@
-# Clase 06 — Taller de soldadura: tu primer circuito permanente 🔥
+# Taller de soldadura: tu primer circuito permanente 🔥
 
 ![portada](images/clase06-portada.png)
 

@@ -1,4 +1,4 @@
-# Clase 04 — El mundo analógico: sensores, PWM y colores 🌈
+# El mundo analógico: sensores, PWM y colores 🌈
 
 ![portada](images/clase04-portada.png)
 

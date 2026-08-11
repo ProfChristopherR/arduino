@@ -1,4 +1,4 @@
-# Clase 01 — ¡Hola, Arduino! Tu primer laboratorio... en la nube ☁️
+# Introducción al Arduino ☁️
 
 ![portada](images/clase01-portada.png)
 

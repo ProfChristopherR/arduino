@@ -1,4 +1,4 @@
-# Clase 08 — Programar con IA: Gemini como tu copiloto + Proyecto Final 🚁
+# Programar con IA: Gemini como tu copiloto + Proyecto Final 🚁
 
 ![portada](images/clase08-portada.jpg)
 

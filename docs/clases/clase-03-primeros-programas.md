@@ -1,4 +1,4 @@
-# Clase 03 — Tus primeros programas de verdad: LEDs, botones y Monitor Serie
+# Tus primeros programas de verdad: LEDs, botones y Monitor Serie
 
 ![portada](images/clase03-portada.png)
 

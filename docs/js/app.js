@@ -6,7 +6,7 @@
 // ---------- Configuración ----------
 const CLASES = [
     { id: 'inicio', titulo: 'Inicio', desc: '', archivo: 'clases/inicio.md' },
-    { id: '01', titulo: '¡Hola, Arduino!', desc: 'Tour por la placa y tus primeros circuitos en el simulador Tinkercad', archivo: 'clases/clase-01-hola-arduino.md' },
+    { id: '01', titulo: 'Introducción al Arduino', desc: 'Tour por la placa y tus primeros circuitos en el simulador Tinkercad', archivo: 'clases/clase-01-hola-arduino.md' },
     { id: '02', titulo: 'Pensar como Programador', desc: 'Algoritmos, variables, condicionales y bucles… sin miedo', archivo: 'clases/clase-02-pensar-como-programador.md' },
     { id: '03', titulo: 'Primeros Programas', desc: 'Estrenamos el kit físico: IDE, LEDs, botones y Monitor Serie', archivo: 'clases/clase-03-primeros-programas.md' },
     { id: '04', titulo: 'Mundo Analógico', desc: 'Potenciómetro, sensor de luz, PWM, LED RGB y música', archivo: 'clases/clase-04-mundo-analogico.md' },
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // ---------- Configurar Marked.js ----------
 function configurarMarked() {
     marked.setOptions({
-        highlight: function(code, lang) {
+        highlight: function (code, lang) {
             if (lang && hljs.getLanguage(lang)) {
                 try {
                     return hljs.highlight(code, { language: lang }).value;
@@ -271,10 +271,10 @@ function procesarHTML(html, clase) {
 
     // 3. En la página de inicio, insertar las tarjetas de acceso a cada clase
     if (clase.id === 'inicio') {
-        const h1 = temp.querySelector('h1');
+        const primerParrafo = temp.querySelector('p');
         const tarjetas = generarTarjetasClases();
-        if (h1) {
-            h1.insertAdjacentHTML('afterend', tarjetas);
+        if (primerParrafo) {
+            primerParrafo.insertAdjacentHTML('afterend', tarjetas);
         } else {
             temp.insertAdjacentHTML('afterbegin', tarjetas);
         }
@@ -409,6 +409,6 @@ function configurarScrollEffects() {
 function precargarSiguiente() {
     const idx = CLASES.findIndex(c => c.id === claseActual);
     if (idx >= 0 && idx < CLASES.length - 1) {
-        fetch(CLASES[idx + 1].archivo).catch(() => {});
+        fetch(CLASES[idx + 1].archivo).catch(() => { });
     }
 }

@@ -1,4 +1,4 @@
-# Clase 07 — Arduino avanzado: organiza tu código como un profesional 🧑‍💻
+# Arduino avanzado: organiza tu código como un profesional 🧑‍💻
 
 ![portada](images/clase07-portada.png)
 
