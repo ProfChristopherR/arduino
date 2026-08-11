@@ -25,7 +25,7 @@ const elements = {
     claseContainer: document.getElementById('claseContainer'),
     loadingContainer: document.getElementById('loadingContainer'),
     themeToggle: document.getElementById('themeToggle'),
-    tabBtns: document.querySelectorAll('.tab-btn'),
+    tabNav: document.getElementById('tabNav'),
     claseSelector: document.getElementById('claseSelector'),
     prevBtn: document.getElementById('prevBtn'),
     nextBtn: document.getElementById('nextBtn'),
@@ -40,6 +40,7 @@ const elements = {
 // ---------- Inicialización ----------
 document.addEventListener('DOMContentLoaded', () => {
     configurarMarked();
+    renderizarNavegacion();
     configurarEventos();
     cargarClaseDesdeURL();
     configurarScrollEffects();
@@ -63,13 +64,30 @@ function configurarMarked() {
     });
 }
 
+// ---------- Renderizar navegación desde CLASES ----------
+function renderizarNavegacion() {
+    if (elements.claseSelector) {
+        elements.claseSelector.innerHTML = CLASES.map(c => {
+            const label = c.id === 'inicio' ? `★ ${c.titulo}` : `${c.id} · ${c.titulo}`;
+            return `<option value="${c.id}">${label}</option>`;
+        }).join('');
+    }
+
+    if (elements.tabNav) {
+        elements.tabNav.innerHTML = CLASES.map(c => {
+            const label = c.id === 'inicio' ? '★' : c.id;
+            return `<button class="tab-btn ${c.id === 'inicio' ? 'active' : ''}" data-clase="${c.id}" title="${c.titulo}"><span class="tab-num">${label}</span></button>`;
+        }).join('');
+    }
+}
+
 // ---------- Configurar eventos ----------
 function configurarEventos() {
     // Cambio de tema
     elements.themeToggle.addEventListener('click', toggleTema);
 
     // Navegación por pestañas (números)
-    elements.tabBtns.forEach(btn => {
+    elements.tabNav.querySelectorAll('.tab-btn').forEach(btn => {
         btn.addEventListener('click', () => navegarAClase(btn.dataset.clase));
     });
 
@@ -151,7 +169,7 @@ function navegarSiguiente() {
 }
 
 function actualizarTabs() {
-    elements.tabBtns.forEach(btn => {
+    elements.tabNav.querySelectorAll('.tab-btn').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.clase === claseActual);
     });
     if (elements.claseSelector) {
